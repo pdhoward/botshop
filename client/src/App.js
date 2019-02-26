@@ -10,6 +10,7 @@ import ListAgents             from './pages/ListAgents';
 import ListClients            from './pages/ListClients';
 import NoMatch                from './pages/NoMatch';
 import Nav                    from "./components/Nav";
+import Footer                 from "./components/Footer";
 import * as ContactsAPI       from './utils/ContactsAPI'
 import About                  from "./components/common/About";
 import Contact                from "./components/common/Contact";
@@ -58,6 +59,7 @@ class App extends Component {
             contacts={this.state.clients}/> } />
           <Route component={NoMatch} />
         </Switch>
+        <Footer/>
 
        </div>
     );
