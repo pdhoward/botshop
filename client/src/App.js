@@ -7,6 +7,7 @@
 import React, { Component }   from 'react';
 import { Route, Switch }      from 'react-router-dom'
 import ListAgents             from './pages/ListAgents';
+import CreateAgent            from './pages/CreateAgent';
 import ListClients            from './pages/ListClients';
 import NoMatch                from './pages/NoMatch';
 import Nav                    from "./components/Nav";
@@ -57,6 +58,9 @@ class App extends Component {
           <Route exact path="/clients" 
             render={(props) => <ListClients {...props}  onDeleteContact = { this.removeClientContact }
             contacts={this.state.clients}/> } />
+          <Route exact path="/create" 
+            render={(props) => <CreateAgent {...props}  onCreateAgent = { this.createAgent }
+            contacts={this.state.agents}/> } />
           <Route component={NoMatch} />
         </Switch>
         <Footer/>
