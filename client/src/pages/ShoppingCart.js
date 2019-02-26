@@ -1,10 +1,14 @@
 import React, { Component }     from "react";
 import ReactDOM                 from "react-dom";
-import Header                   from "./components/Shop/Header";
-import Products                 from "./components/Shop/Products";
-import Footer                   from "./components/Shop/Footer";
-import QuickView                from "./components/Shop/QuickView";
-import "./scss/style.scss";
+import Header                   from "../components/Shop/Header";
+import Products                 from "../components/Shop/Products";
+import Footer                   from "../components/Shop/Footer";
+import QuickView                from "../components/Shop/QuickView";
+import "../components/Shop/scss/style.scss";
+
+const headers = {
+    'Accept': 'application/json'    
+  }
 
 class ShoppingCart extends Component {
   constructor() {
@@ -37,9 +41,11 @@ class ShoppingCart extends Component {
   getProducts() {
     let url =
       "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
-    fetch(url).then(response => {
+    fetch(url, { headers })
+    .then(res => res.json())
+    .then(response => {       
       this.setState({
-        products: response.data
+        products: response
       });
     });
   }

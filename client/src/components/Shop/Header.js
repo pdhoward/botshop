@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import CartScrollBar from "./CartScrollBar";
-import Counter from "./Counter";
-import EmptyCart from "../empty-states/EmptyCart";
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
-import { findDOMNode } from "react-dom";
+import React, { Component }       from "react";
+import CartScrollBar              from "./CartScrollBar";
+import Counter                    from "./Counter";
+import EmptyCart                  from "./emptystates/EmptyCart";
+import {CSSTransition, 
+        TransitionGroup}          from "react-transition-group";
+import { findDOMNode }            from "react-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -98,15 +99,17 @@ class Header extends Component {
       view = <EmptyCart />;
     } else {
       view = (
-        <CSSTransitionGroup
-          transitionName="fadeIn"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-          component="ul"
-          className="cart-items"
-        >
-          {cartItems}
-        </CSSTransitionGroup>
+        <TransitionGroup>
+          <CSSTransition
+                transitionName="fadeIn"
+                transitionEnterTimeout={500}
+                transitionLeaveTimeout={300}
+                component="ul"
+                className="cart-items"
+              >
+                {cartItems}
+          </CSSTransition>
+        </TransitionGroup>
       );
     }
     return (
