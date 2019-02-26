@@ -7,14 +7,15 @@
 import React, { Component }   from 'react'
 import { Route, Switch }      from 'react-router-dom'
 import About                  from './pages/About'
-import ListAgents             from './pages/ListAgents'
 import CreateAgent            from './pages/CreateAgent'
+import Demo                   from './pages/Demo'
+import ListAgents             from './pages/ListAgents'
 import ListClients            from './pages/ListClients'
+import ShoppingCart           from './pages/ShoppingCart'
 import NoMatch                from './pages/NoMatch'
 import Nav                    from "./components/Nav"
 import Footer                 from "./components/Footer"
 import * as ContactsAPI       from './utils/ContactsAPI'
-import About                  from "./components/common/About"
 
 class App extends Component {
   state = {
@@ -47,12 +48,12 @@ class App extends Component {
     })
   }
 
-  addCart = (contact) => {    
+  addCart = (contact) => { 
       this.setState( (state) => ({
         cart: state.cart.push( contact )
       }) )
     }
-  }
+  
 
   componentDidMount() {
         ContactsAPI.getAll().then((agents) => {
@@ -80,7 +81,8 @@ class App extends Component {
           <Route exact path="/cart" 
             render={(props) => <ShoppingCart {...props}  onAddCart = { this.addCart }
             contacts={this.state.cart}/> } />
-          <Route exact path="/about" component={About} />           
+          <Route exact path="/about" component={About} />  
+          <Route exact path="/demo" component={Demo} />         
           <Route component={NoMatch} />
         </Switch>
         <Footer/>

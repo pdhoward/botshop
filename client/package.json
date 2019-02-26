@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "engines": {},
   "dependencies": {
+    "cleave.js": "^1.4.7",
     "escape-string-regexp": "^1.0.5",
     "form-serialize": "^0.7.2",
     "prop-types": "^15.7.2",
