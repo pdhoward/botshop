@@ -65,8 +65,7 @@ class ListAgents extends Component {
         </div>
       )}
 
-      <ol className='contact-list'>
-        <h4>Available Agents - Here to Serve You</h4>
+      <ol className='contact-list'>        
         {showingContacts.map((contact) => (
             <li key={contact.id} className='contact-list-item'>
               <div className='contact-avatar' style={{
