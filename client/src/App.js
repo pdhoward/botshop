@@ -4,22 +4,23 @@
 /////////          Connecting Business to Bots           /////////////
 /////////////////////////////////////////////////////////////////////
 
-import React, { Component }   from 'react';
+import React, { Component }   from 'react'
 import { Route, Switch }      from 'react-router-dom'
-import ListAgents             from './pages/ListAgents';
-import CreateAgent            from './pages/CreateAgent';
-import ListClients            from './pages/ListClients';
-import NoMatch                from './pages/NoMatch';
-import Nav                    from "./components/Nav";
-import Footer                 from "./components/Footer";
+import About                  from './pages/About'
+import ListAgents             from './pages/ListAgents'
+import CreateAgent            from './pages/CreateAgent'
+import ListClients            from './pages/ListClients'
+import NoMatch                from './pages/NoMatch'
+import Nav                    from "./components/Nav"
+import Footer                 from "./components/Footer"
 import * as ContactsAPI       from './utils/ContactsAPI'
-import About                  from "./components/common/About";
-import Contact                from "./components/common/Contact";
+import About                  from "./components/common/About"
 
 class App extends Component {
   state = {
     agents: [ ],
     clients: [ ],
+    cart: [],
     currentPage: "Agents"
   }
 
@@ -36,6 +37,21 @@ class App extends Component {
         clients: state.clients.filter((c) => c.id !== contact.id )
       }) )
     })
+  }
+
+  createAgent = (contact) => {
+    ContactsAPI.create(contact).then(cnt =>{
+      this.setState( (state) => ({
+        agents: state.agents.push( contact )
+      }) )
+    })
+  }
+
+  addCart = (contact) => {    
+      this.setState( (state) => ({
+        cart: state.cart.push( contact )
+      }) )
+    }
   }
 
   componentDidMount() {
@@ -61,6 +77,10 @@ class App extends Component {
           <Route exact path="/create" 
             render={(props) => <CreateAgent {...props}  onCreateAgent = { this.createAgent }
             contacts={this.state.agents}/> } />
+          <Route exact path="/cart" 
+            render={(props) => <ShoppingCart {...props}  onAddCart = { this.addCart }
+            contacts={this.state.cart}/> } />
+          <Route exact path="/about" component={About} />           
           <Route component={NoMatch} />
         </Switch>
         <Footer/>

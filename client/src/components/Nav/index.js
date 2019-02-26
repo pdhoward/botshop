@@ -83,7 +83,16 @@ class Nav extends Component {
                 to="/cart"
               >
                 Shopping Cart
-              </Link>
+              </Link>              
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+                to="/about"
+              >
+                About
+              </Link>              
             </li>
           </ul>
         </div>
