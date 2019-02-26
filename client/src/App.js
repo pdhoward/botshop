@@ -1,21 +1,18 @@
 
 ////////////////////////////////////////////////////////////////////////
-/////////////////  Main App for Agent Store          //////////////////
-/////////////////    Connecting Business to Bots   ///////////////////
-//////////////////////////////////////////////////////////////////////
+//////////           Main App for Bot Store               /////////////
+/////////          Connecting Business to Bots           /////////////
+/////////////////////////////////////////////////////////////////////
 
 import React, { Component }   from 'react';
-import ListAgents             from './components/agent/ListAgents';
-import ListClients            from './components/client/ListClients';
+import { Route, Switch }      from 'react-router-dom'
+import ListAgents             from './pages/ListAgents';
+import ListClients            from './pages/ListClients';
+import NoMatch                from './pages/NoMatch';
+import Nav                    from "./components/Nav";
 import * as ContactsAPI       from './utils/ContactsAPI'
-import Navpills               from './components/common/Navpills';
-import Home                   from "./components/common/Home";
 import About                  from "./components/common/About";
-import Blog                   from "./components/common/Blog";
 import Contact                from "./components/common/Contact";
-
-
-// note lifecycle method to load all contacts when mounted
 
 class App extends Component {
   state = {
@@ -39,32 +36,6 @@ class App extends Component {
     })
   }
 
-  handlePageChange = page => {
-    this.setState({ currentPage: page });
-  };
-
-  renderPage = () => {
-    if (this.state.currentPage === "Agents") {
-
-      return <ListAgents
-                onDeleteContact = { this.removeAgentContact }
-                contacts={this.state.agents}
-              />
-
-          } else if (this.state.currentPage === "Clients") {
-
-       return <ListClients
-                 onDeleteContact = { this.removeClientContact }
-                 contacts={this.state.clients}
-               />
-
-    } else if (this.state.currentPage === "Blog") {
-      return <Blog />;
-    } else {
-      return <Contact />;
-    }
-  };
-
   componentDidMount() {
         ContactsAPI.getAll().then((agents) => {
           this.setState({ agents })
@@ -76,12 +47,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className = 'app'>
-        <Navpills
-            currentPage={this.state.currentPage}
-            handlePageChange={this.handlePageChange}
-          />
-        {this.renderPage()}
+      <div className = 'app'>       
+        <Nav />
+        <Switch>
+          <Route exact path="/" 
+            render={(props) => <ListAgents {...props}  onDeleteContact = { this.removeAgentContact }
+            contacts={this.state.agents}/> } />
+          <Route exact path="/clients" 
+            render={(props) => <ListClients {...props}  onDeleteContact = { this.removeClientContact }
+            contacts={this.state.clients}/> } />
+          <Route component={NoMatch} />
+        </Switch>
 
        </div>
     );
