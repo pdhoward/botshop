@@ -65,7 +65,7 @@ class Demo extends React.Component {
                 <Cleave placeholder="Phone number (US)" options={{phone: true, phoneRegionCode: 'US'}}
                         onChange={this.onPhoneChange}/>
 
-                <Cleave placeholder="Date (YYYYMMDD)" options={{date: true, datePattern: ['Y', 'm', 'd']}}
+                <Cleave placeholder="Date (yyyymmdd)" options={{date: true, datePattern: ['Y', 'm', 'd']}}
                         onChange={this.onDateChange}/>
 
                 <Cleave className="input-numeral" placeholder="Numeral" options={{numeral: true, numeralThousandsGroupStyle: 'thousand'}}
