@@ -313,7 +313,7 @@ const objStore = [
   lastname: "Jones",
   id: uuidv1(),
   email: "veronica@gmail.com",
-  cell: '704-555-1212',
+  cell: '704-555-1215',
   subscribe:{
     }
 },

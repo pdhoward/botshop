@@ -19,8 +19,10 @@ class CreateAgent extends Component {
         values.name = values.firstname + " " + values.lastname
         console.log(values)   
         this.props.onCreateAgent(values)
-    }
+        this.props.history.push('/') 
+    }    
 
+    
   }
   render() {
     return (

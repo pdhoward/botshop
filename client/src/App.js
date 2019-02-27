@@ -4,18 +4,21 @@
 /////////          Connecting Business to Bots           /////////////
 /////////////////////////////////////////////////////////////////////
 
-import React, { Component }   from 'react'
-import { Route, Switch }      from 'react-router-dom'
-import About                  from './pages/About'
-import CreateAgent            from './pages/CreateAgent'
-import Demo                   from './pages/Demo'
-import ListAgents             from './pages/ListAgents'
-import ListClients            from './pages/ListClients'
-import ShoppingCart           from './pages/ShoppingCart'
-import NoMatch                from './pages/NoMatch'
-import Nav                    from "./components/Nav"
-import Footer                 from "./components/Footer"
-import * as ContactsAPI       from './utils/ContactsAPI'
+import React, { Component }     from 'react'
+import { Route, Switch }        from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import About                    from './pages/About'
+import CreateAgent              from './pages/CreateAgent'
+import Demo                     from './pages/Demo'
+import ListAgents               from './pages/ListAgents'
+import ListClients              from './pages/ListClients'
+import ShoppingCart             from './pages/ShoppingCart'
+import NoMatch                  from './pages/NoMatch'
+import Nav                      from "./components/Nav"
+import Footer                   from "./components/Footer"
+import * as ContactsAPI         from './utils/ContactsAPI'
+
+//const history = createBrowserHistory();
 
 class App extends Component {
   state = {
@@ -44,9 +47,11 @@ class App extends Component {
     console.log(`entered create agent`)
     console.log(contact)
     ContactsAPI.create(contact).then(cnt =>{
+      let newAgents = [...this.state.agents]
+      newAgents.push(contact)
       this.setState( (state) => ({
-        agents: state.agents.push( contact )
-      }) )      
+        agents: newAgents
+      }) ) 
     })
   }
 
