@@ -33,7 +33,10 @@
     line-height: 22px;
     margin-bottom: 16px;
     &:before {
-      content: "₹ ";
+      content: "$ ";
+    };
+    &:after {
+      content: "/mo";
     }
   }
   .product-name,

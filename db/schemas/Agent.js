@@ -6,6 +6,9 @@ const uuidv1 =  require('uuid/v1')
 // placeholder
 const agentSchema = mongoose.Schema({
   avatarURL: String,
+  name: String,
+  price: Number,
+  category: String,
   firstname: String,
   lastname: String,
   email: String,
