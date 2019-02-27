@@ -16,7 +16,7 @@ class Products extends Component {
 
     function searchingFor(term) {
       return function(x) {
-        return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+        return x.firstname.toLowerCase().includes(term.toLowerCase()) || !term;
       };
     }
     productsData = this.props.productsList
@@ -26,8 +26,8 @@ class Products extends Component {
           <Product
             key={product.id}
             price={product.price}
-            name={product.name}
-            image={product.image}
+            name={product.firstname}
+            image={product.avatarURL}
             id={product.id}
             addToCart={this.props.addToCart}
             productQuantity={this.props.productQuantity}

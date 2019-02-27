@@ -50,7 +50,10 @@ class ShoppingCart extends Component {
     });
   }
   componentWillMount() {
-    this.getProducts();
+    //this.getProducts();
+    this.setState({
+      products: this.props.contacts
+    });
   }
 
   // Search by Keyword
@@ -156,6 +159,7 @@ class ShoppingCart extends Component {
   }
 
   render() {
+    const { products } = this.props
     return (
       <div className="container">
         <Header
@@ -172,7 +176,7 @@ class ShoppingCart extends Component {
           productQuantity={this.state.moq}
         />
         <Products
-          productsList={this.state.products}
+          productsList={products}
           searchTerm={this.state.term}
           addToCart={this.handleAddToCart}
           productQuantity={this.state.quantity}
