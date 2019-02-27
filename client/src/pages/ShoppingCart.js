@@ -71,8 +71,7 @@ class ShoppingCart extends Component {
     let cartItem = this.state.cart;
     let productID = selectedProducts.id;
     let productQty = selectedProducts.quantity;
-    if (this.checkProduct(productID)) {
-      console.log("hi");
+    if (this.checkProduct(productID)) {     
       let index = cartItem.findIndex(x => x.id == productID);
       cartItem[index].quantity =
         Number(cartItem[index].quantity) + Number(productQty);
@@ -92,8 +91,7 @@ class ShoppingCart extends Component {
           cartBounce: false,
           quantity: 1
         });
-        console.log(this.state.quantity);
-        console.log(this.state.cart);
+        
       }.bind(this),
       1000
     );

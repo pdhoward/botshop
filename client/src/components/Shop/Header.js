@@ -6,6 +6,8 @@ import {CSSTransition,
         TransitionGroup}          from "react-transition-group";
 import { findDOMNode }            from "react-dom";
 
+const apiProfile = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5002'
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -119,8 +121,8 @@ class Header extends Component {
           <div className="brand">
             <img
               className="logo"
-              src="https://res.cloudinary.com/sivadass/image/upload/v1493547373/dummy-logo/Veggy.png"
-              alt="Veggy Brand Logo"
+              src={`${apiProfile}/smlogo.png`}
+              alt="Strategic Machine Brand Logo"
             />
           </div>
 
@@ -131,7 +133,7 @@ class Header extends Component {
               onClick={this.handleMobileSearch.bind(this)}
             >
               <img
-                src="https://res.cloudinary.com/sivadass/image/upload/v1494756966/icons/search-green.png"
+                src={`${apiProfile}/search-green.png`}
                 alt="search"
               />
             </a>
@@ -148,14 +150,14 @@ class Header extends Component {
                 onClick={this.handleSearchNav.bind(this)}
               >
                 <img
-                  src="https://res.cloudinary.com/sivadass/image/upload/v1494756030/icons/back.png"
+                  src={`${apiProfile}/back.png`}
                   alt="back"
                 />
               </a>
               <input
                 type="search"
                 ref="searchBox"
-                placeholder="Search for Vegetables and Fruits"
+                placeholder="Search for Bots"
                 className="search-keyword"
                 onChange={this.props.handleSearch}
               />
@@ -172,7 +174,7 @@ class Header extends Component {
               <table>
                 <tbody>
                   <tr>
-                    <td>No. of items</td>
+                    <td>No. of bots</td>
                     <td>:</td>
                     <td>
                       <strong>{this.props.totalItems}</strong>
@@ -196,7 +198,7 @@ class Header extends Component {
             >
               <img
                 className={this.props.cartBounce ? "tada" : " "}
-                src="https://res.cloudinary.com/sivadass/image/upload/v1493548928/icons/bag.png"
+                src={`${apiProfile}/bag.png`}
                 alt="Cart"
               />
               {this.props.totalItems ? (
