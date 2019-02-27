@@ -47,7 +47,7 @@ class Products extends Component {
       view = (
         <TransitionGroup>
           <CSSTransition
-            transitionName="fadeIn"            
+            transitionname="fadeIn"            
             timeout={{enter: 500, exit: 300}}
             component="div"
             className="products"
