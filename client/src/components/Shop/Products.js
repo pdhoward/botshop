@@ -47,13 +47,14 @@ class Products extends Component {
       view = (
         <TransitionGroup>
           <CSSTransition
-            transitionName="fadeIn"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}
+            transitionName="fadeIn"            
+            timeout={{enter: 500, exit: 300}}
             component="div"
             className="products"
           >
+          <div key="transition-group-content" >
             {productsData}
+          </div>
           </CSSTransition>
         </TransitionGroup>
       );
