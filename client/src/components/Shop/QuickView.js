@@ -50,7 +50,7 @@ class QuickView extends Component {
           <div className="quick-view">
             <div className="quick-view-image">
               <img
-                src={this.props.product.image}
+                src={this.props.product.avatarURL}
                 alt={this.props.product.name}
               />
             </div>

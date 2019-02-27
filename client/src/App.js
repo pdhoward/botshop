@@ -41,6 +41,8 @@ class App extends Component {
   }
 
   createAgent = (contact) => {
+    console.log(`entered create agent`)
+    console.log(contact)
     ContactsAPI.create(contact).then(cnt =>{
       this.setState( (state) => ({
         agents: state.agents.push( contact )

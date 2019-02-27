@@ -8,7 +8,7 @@ import { Link }           from "react-router-dom"
 import ImageInput         from './ImageInput'
 import serializeForm      from 'form-serialize'
 
-class CreateContact extends Component {
+class CreateAgent extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -22,21 +22,21 @@ class CreateContact extends Component {
       <div>
         <Link className="close-create-contact" to="/">Close</Link>
         <form onSubmit={this.handleSubmit} className="create-contact-form">
-        <ImageInput
-        className="create-contact-avatar-input"
-        name="avatarURL"
-        maxHright={64}
-        />
-      <div className="create-contact-details">
-        <input type="text" name="name" placeholder="Name" />
-        <input type="text" name="email" placeholder="Email" />
-        <button>Add Bot</button>
-      </div>
-      </form>
+            <ImageInput
+              className="create-contact-avatar-input"
+              name="avatarURL"
+              maxHright={64}
+            />
+            <div className="create-contact-details">
+              <input type="text" name="name" placeholder="Name" />
+              <input type="text" name="email" placeholder="Email" />
+              <button>Add Bot</button>
+            </div>
+        </form>
       </div>
     )
   }
 
 }
 
-export default CreateContact
+export default CreateAgent

@@ -53,6 +53,11 @@ class Product extends Component {
         this.props.openModal(this.state.quickViewProdcut);
       }
     );
+    console.log(`Inside of Product`)
+    console.log(this.state.quickViewProdcut)
+    console.log(image)
+    console.log(name)
+    console.log(price)
   }
   render() {
     let image = this.props.image;

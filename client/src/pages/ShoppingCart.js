@@ -5,6 +5,7 @@ import Products                 from "../components/Shop/Products";
 import Footer                   from "../components/Shop/Footer";
 import QuickView                from "../components/Shop/QuickView";
 import "../components/Shop/scss/style.scss";
+import { ConnectionBase } from "mongoose";
 
 const headers = {
     'Accept': 'application/json'    
@@ -150,6 +151,9 @@ class ShoppingCart extends Component {
       quickViewProduct: product,
       modalActive: true
     });
+    console.log(`Inside of shopping cart`)
+    console.log(this.state.quickViewProduct)
+    console.log(this.state.modalActive)
   }
   // Close Modal
   closeModal() {
