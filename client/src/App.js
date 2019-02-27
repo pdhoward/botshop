@@ -46,7 +46,7 @@ class App extends Component {
     ContactsAPI.create(contact).then(cnt =>{
       this.setState( (state) => ({
         agents: state.agents.push( contact )
-      }) )
+      }) )      
     })
   }
 
