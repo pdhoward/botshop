@@ -102,12 +102,13 @@ class Header extends Component {
         <TransitionGroup>
           <CSSTransition
                 transitionName="fadeIn"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={300}
+                timeout={{enter: 500, exit: 300}}
                 component="ul"
                 className="cart-items"
               >
+              <div key="transition-group-content" >
                 {cartItems}
+              </div>
           </CSSTransition>
         </TransitionGroup>
       );
