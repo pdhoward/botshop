@@ -26,7 +26,7 @@ Note that a backend server is used strictly for prototyping. Not commercial read
 
 ## Contributing
 
-For details, check out [CONTRIBUTING](CONTRIBUTING.md).
+For details, check out [CONTRIBUTING](.github/CONTRIBUTING.md).
 
 
 Strategic Machines and affiliates
