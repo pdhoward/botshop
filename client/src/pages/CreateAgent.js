@@ -20,10 +20,9 @@ class CreateAgent extends Component {
         console.log(values)   
         this.props.onCreateAgent(values)
         this.props.history.push('/') 
-    }    
-
-    
+    }     
   }
+  
   render() {
     return (
       <div>
