@@ -56,6 +56,7 @@ class Header extends Component {
       }
     }
   }
+  /*
   componentDidMount() {
     document.addEventListener(
       "click",
@@ -63,6 +64,7 @@ class Header extends Component {
       true
     );
   }
+  */
   componentWillUnmount() {
     document.removeEventListener(
       "click",

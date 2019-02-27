@@ -80,7 +80,7 @@ class App extends Component {
             contacts={this.state.agents}/> } />
           <Route exact path="/cart" 
             render={(props) => <ShoppingCart {...props}  onAddCart = { this.addCart }
-            contacts={this.state.cart}/> } />
+            contacts={this.state.agents}/> } />
           <Route exact path="/about" component={About} />  
           <Route exact path="/demo" component={Demo} />         
           <Route component={NoMatch} />
