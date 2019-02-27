@@ -97,7 +97,7 @@ const objStore = [
     }
 },
 {
-  avatarURL: "http://localhost:5002/avatar/persona/lindsay.jpg",
+  avatarURL: "http://localhost:5002/avatar/persona/lindsay.png",
   name: "Lindsay Smith",
   price: 8,
   category: "Data Analytics",
@@ -214,7 +214,7 @@ const objStore = [
     }
 },
 {
-  avatarURL: "http://localhost:5002/avatar/persona/lena.jpg",
+  avatarURL: "http://localhost:5002/avatar/persona/lena.png",
   name: "Lena Left",
   price: 7.00,
   category: "Payments",
@@ -227,7 +227,7 @@ const objStore = [
     }
 },
 {
-  avatarURL: "http://localhost:5002/avatar/persona/molly.jpg",
+  avatarURL: "http://localhost:5002/avatar/persona/molly.png",
   name: "Molly Maker",
   price: 8,
   category: "Payments",
@@ -266,7 +266,7 @@ const objStore = [
     }
 },
 {
-  avatarURL: "http://localhost:5002/avatar/persona/rachel.jpg",
+  avatarURL: "http://localhost:5002/avatar/persona/rachel.png",
   name: "Rachel Rise",
   price: 7.00,
   category: "Buy",
@@ -300,12 +300,12 @@ const objStore = [
   lastname: "Amir",
   id: uuidv1(),
   email: "ahmed@gmail.com",
-  cell: '704-555-1212',
+  cell: '704-555-1214',
   subscribe:{
     }
 },
 {
-  avatarURL: "http://localhost:5002/avatar/persona/veronica.jpg",
+  avatarURL: "http://localhost:5002/avatar/persona/veroniKa.jpg",
   name: "Veronica Jones",
   price: 8,
   category: "Data Analytics",
