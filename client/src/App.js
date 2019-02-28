@@ -43,16 +43,27 @@ class App extends Component {
     })
   }
 
-  createAgent = (contact) => {
+  createAgent = async (contact) => {
     console.log(`entered create agent`)
     console.log(contact)
-    ContactsAPI.create(contact).then(cnt =>{
-      let newAgents = [...this.state.agents]
+    try{
+      let cnt = await ContactsAPI.create(contact)
+    } catch(error){
+      console.log(`error noted`)
+      console.log(error)
+    }    
+    let newAgents = [...this.state.agents]   
+    await this.updateArray(newAgents, contact).then((arr) => {     
+      this.setState({ agents: arr })        
+    })   
+  }
+
+  updateArray = (newAgents, contact) => {    
+    return new Promise((resolve, reject) => {
       newAgents.push(contact)
-      this.setState( (state) => ({
-        agents: newAgents
-      }) ) 
+      resolve(newAgents)
     })
+
   }
 
   addCart = (contact) => { 

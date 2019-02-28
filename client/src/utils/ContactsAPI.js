@@ -31,15 +31,17 @@ export const remove = (contact) =>
     .then(res => res.json())
     .then(data => data.contact)
 
-export const create = (body) =>
-  fetch(`${apiProfile}/api/dba`, {
-    method: 'POST',
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  }).then(res => res.json())
+export const create = async (body) => {
+  let res = await fetch(`${apiProfile}/api/dba`, {
+            method: 'POST',
+            headers: {
+              ...headers,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+          })
+  return res.json()
+}
 
 export const updateProfile = (body) =>
     fetch(`${apiProfile}/api/dba`, {

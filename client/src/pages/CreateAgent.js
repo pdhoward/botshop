@@ -17,6 +17,7 @@ class CreateAgent extends Component {
     if (this.props.onCreateAgent) {
         values.id = uuidv4()
         values.name = values.firstname + " " + values.lastname
+        console.log(`step 0`)
         console.log(values)   
         this.props.onCreateAgent(values)
         this.props.history.push('/') 
