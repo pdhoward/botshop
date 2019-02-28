@@ -4,14 +4,14 @@
 //////////////////////////////////////////////////////////////////////////
 ///////////////////////////// Mongodb Functions /////////////////////////
 ////////////////////////////////////////////////////////////////////////
-const Agent =     require('../db/schemas/Agent')
+const Member =     require('../schemas/Client')
 
 module.exports = {
 
   get: function() {
 
     return new Promise((resolve, reject) => {
-      Agent.find({}, function(err, response) {
+      Member.find({}, function(err, response) {
           if (err) {
             if (err.error !== 'not_found') {
               resolve(err)
@@ -25,11 +25,11 @@ module.exports = {
 
   put: function(params) {
 
-    let Agent = new Agent(params);
+    let member = new Member(params);
     return new Promise((resolve, reject) => {
-        Agent.save(function (err, response) {
+        member.save(function (err, response) {
           if (err) {
-            console.log("Error When Saving Agent")
+            console.log("Error When Saving Client")
             reject(err)
           }
           resolve(response)
@@ -39,9 +39,9 @@ module.exports = {
 
   update: function(contact) {
     return new Promise((resolve, reject) => {
-    Agent.findOneAndUpdate({id: contact.id}, contact, {upsert: true}, function (err, response) {
+    Member.findOneAndUpdate({id: contact.id}, contact, function (err, response) {
       if (err) {
-        console.log(r("Error When Updating Agent"))
+        console.log(r("Error When Updating Member"))
         reject(err)
       }
       resolve(response);
@@ -49,9 +49,9 @@ module.exports = {
     })
   },
 
-  delete: function(id) {      
+  delete: function(id) {    
     return new Promise((resolve, reject) => {
-      Agent.remove({id: id}, function(err, response) {
+      Member.remove({id: id}, function(err, response) {
           if (err) {
             if (err.error !== 'not_found') {
               resolve(err)

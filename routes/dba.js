@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 const bodyParser =  			require('body-parser')
-const api =         			require('../apia')
+const api =         			require('../db/api')
 
 const dba = (router) => {
 
