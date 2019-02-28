@@ -1,15 +1,10 @@
 import React, { Component }     from "react";
-import ReactDOM                 from "react-dom";
 import Header                   from "../components/Shop/Header";
 import Products                 from "../components/Shop/Products";
 import Footer                   from "../components/Shop/Footer";
 import QuickView                from "../components/Shop/QuickView";
 import "../components/Shop/scss/style.scss";
-import { ConnectionBase } from "mongoose";
 
-const headers = {
-    'Accept': 'application/json'    
-  }
 
 class ShoppingCart extends Component {
   constructor() {
@@ -38,20 +33,9 @@ class ShoppingCart extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-  // Fetch Initial Set of Products from external API
-  getProducts() {
-    let url =
-      "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
-    fetch(url, { headers })
-    .then(res => res.json())
-    .then(response => {       
-      this.setState({
-        products: response
-      });
-    });
-  }
-  componentWillMount() {
-    //this.getProducts();
+  // set state for the array of bot objects passed from component
+ 
+  componentWillMount() {    
     this.setState({
       products: this.props.contacts
     });
