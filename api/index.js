@@ -4,9 +4,8 @@
 /////////////////     API Catalogue for db store   //////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-const clone =     require('clone')
-const uuidv1 =    require('uuid/v1');
-const db =        require('./clients')
+
+const clients =        require('./clients')
 
 ////////////////////////////////////
 ///////   get all clients ////////
@@ -14,7 +13,7 @@ const db =        require('./clients')
 const getClients = (token, cb) => {
 
   async function thread() {
-    let result = await db.get()
+    let result = await clients.get()
     return result
   }
 
@@ -34,7 +33,7 @@ const getClients = (token, cb) => {
 const updateClient = (token, contact, cb) => {
 
   async function thread(contact) {
-    let result = await db.update(contact)
+    let result = await clients.update(contact)
     return result
   }
 
@@ -52,7 +51,7 @@ const updateClient = (token, contact, cb) => {
 const addClient = (token, contact, cb) => {
 
   async function thread(contact) {
-    let result = await db.put(contact)
+    let result = await clients.put(contact)
     return result
   }
 
@@ -70,7 +69,7 @@ const addClient = (token, contact, cb) => {
 const deleteClient = (token, id, cb) => {
 
   async function thread(id) {
-    let result = await db.delete(id)
+    let result = await clients.delete(id)
     return result
   }
 
