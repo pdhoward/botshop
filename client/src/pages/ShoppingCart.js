@@ -33,7 +33,7 @@ class ShoppingCart extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-  // set state for the array of bot objects passed from component
+  // set state for the array of bot objects passed from parent component
  
   componentWillMount() {    
     this.setState({
@@ -123,8 +123,7 @@ class ShoppingCart extends Component {
   }
 
   //Reset Quantity
-  updateQuantity(qty) {
-    console.log("quantity added...");
+  updateQuantity(qty) {   
     this.setState({
       quantity: qty
     });
@@ -134,11 +133,9 @@ class ShoppingCart extends Component {
     this.setState({
       quickViewProduct: product,
       modalActive: true
-    });
-    console.log(`Inside of shopping cart`)
-    console.log(this.state.quickViewProduct)
-    console.log(this.state.modalActive)
+    });    
   }
+  
   // Close Modal
   closeModal() {
     this.setState({
